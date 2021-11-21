@@ -1,5 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+const { response } = require("express");
 
+document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadTables(data) {
