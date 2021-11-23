@@ -8,8 +8,56 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <div class = "menu">            <!--allows name to be referenced as a selector in css, style it in css-->
+        <div class="container">
+            <a class="logo" href="#">Airbus<span>Logistics</span></a>
+            <img id="mobile-cta" class="mobile-menu" src="images/menu.svg" alt="Open Navigator">
 
+            <nav>
+                <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close Navigator">
+                <ul class="primary-nav">
+                    <li class="page"><a href="index.html#menu">Home</a></li>
+                    <li><a href="index.html#flightsPage">Flights</a></li>
+                    <li><a href="./boarding.html">Boarding</a></li>
+                    <li><a href="./Airplane.html">Airplane</a></li>
+                </ul>
+                <ul class="secondary-nav">
+                    <li><a href="index.html#AboutUs">About Us</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>   
+    </div>
 
-    some stuff in FAQ
+    <section class="FAQpage">
+        <div class="container">
+            <h1>FAQ</h1>
+        </div>
+        <div class="questions">
+            <h3>Where are our links?</h3>
+            <ul class="Links">
+                <li><a href="./ReadME.md">ReadME</a></li>
+                <li><a href="./ReadME.md">Demo</a></li>
+                <li><a href="https://lucid.app/lucidchart/ae935cab-a5ca-49df-b701-67ef2e1988b0/edit?page=0_0&invitationId=inv_80e8da68-1a95-4023-8c54-3886f855ee11#">Er Diagram</a></li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-cta')
+              nav = document.querySelector('nav')
+              mobileMenuExit = document.getElementById('mobile-exit');
+
+              mobileMenu.addEventListener('click', () => {
+                  nav.classList.add('mobile-menu');
+              })
+
+              mobileMenuExit.addEventListener('click', () => {
+                  nav.classList.remove('mobile-menu');
+              })
+    </script>
+   
     
 </body>
