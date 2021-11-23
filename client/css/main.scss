@@ -110,17 +110,26 @@ section.updating-tables{
 section.AboutUs{
     background-color: white;
 
-    .aboutus-left{
-        font-size: 1em;
-        font-weight: bolder; 
-        
-        h2{
+    h2{
         font-size: 2em;
         color: var(--primary-color);
-        }
     }
 
+    .aboutus-left{
+        font-size: 1em;
+        font-weight: bolder;
+    }
+    .aboutus-right{
+        .flightcrew{
+            width: 100%;
+            position: center;
+        }
+       
+    }
+
+
 }
+
 
 section.contact{
 
