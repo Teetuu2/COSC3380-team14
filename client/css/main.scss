@@ -58,7 +58,7 @@ section{
 
 .mainPage{
     text-align: center;
-    background: url(../images/homescreenairplane.jpeg);
+    background: url(images/homescreenairplane.jpeg);
     padding: none;
     margin: none;
     background-repeat: no-repeat;
@@ -107,42 +107,64 @@ section.updating-tables{
     background-color: var(--secondary-color);
 }
 
-.contact-left{
-    h2{
-        font-size: 1.5em;
-        font-weight: bolder;
+section.AboutUs{
+    background-color: white;
+
+    .aboutus-left{
+        font-size: 1em;
+        font-weight: bolder; 
+        
+        h2{
+        font-size: 2em;
         color: var(--primary-color);
+        }
     }
 
-    label{
-        display: block;
-        font-size: 1.2em;
-        margin-bottom: .5em;
-    }
+}
 
-    input, textarea{
-        width: 100%;
-        padding: .8em;
-        margin-bottom: 1em;
-        border-radius: .3em;
-        border: 1px solid grey;
-        box-sizing: border-box;
-    }
+section.contact{
 
-    input[type="submit"]{
-        background-color: var(--primary-color);
-        color: white;
-        font-weight: bold;
-        font-size: 1.3em;
-        border: none;
-        margin-bottom: 3em;
-        border-radius: 3em;
-        display: inline-block;
-        padding: .8em 2em;
-        width: unset;
-        cursor: pointer;
+    background-color: var(--secondary-color);
+
+    .contact-left{
+        h2{
+            font-size: 2em;
+            font-weight: bolder;
+            color: var(--primary-color);
+        }
+
+        label{
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: .5em;
+        }
+
+        input, textarea{
+            width: 100%;
+            padding: .8em;
+            margin-bottom: 1em;
+            border-radius: .3em;
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"]{
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            border: none;
+            margin-bottom: 3em;
+            border-radius: 3em;
+            display: inline-block;
+            padding: .8em 2em;
+            width: unset;
+            cursor: pointer;
+        }
     }
 }
+
+
 
 nav.mobile-menu{
     display: block;
