@@ -107,19 +107,17 @@ section.updating-tables{
     background-color: var(--secondary-color);
 }
 
-
-
 section.AboutUs{
     background-color: white;
 
-    h2{
+    .aboutus-left{
+        font-size: 1em;
+        font-weight: bolder; 
+        
+        h2{
         font-size: 2em;
         color: var(--primary-color);
-    }
-
-    aboutus-left{
-        font-size: 1.2em;
-        font-weight: bolder;
+        }
     }
 
 }
@@ -127,6 +125,7 @@ section.AboutUs{
 section.contact{
 
     background-color: var(--secondary-color);
+
     .contact-left{
         h2{
             font-size: 2em;
