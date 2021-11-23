@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target 3 Hw3</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class = "menu">            <!--allows name to be referenced as a selector in css, style it in css-->
+        <div class="container">
+            <a class="logo" href="#">Airbus<span>Logistics</span></a>
+            <img id="mobile-cta" class="mobile-menu" src="images/menu.svg" alt="Open Navigator">
+
+            <nav>
+                <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close Navigator">
+                <ul class="primary-nav">
+                    <li class="page"><a href="index.html#menu">Home</a></li>
+                    <li><a href="index.html#flightsPage">Flights</a></li>
+                    <li><a href="./boarding.html">Boarding</a></li>
+                    <li><a href="./Airplane.html">Airplane</a></li>
+                </ul>
+                <ul class="secondary-nav">
+                    <li><a href="index.html#AboutUs">About Us</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>   
+    </div>
+
+    <section class="airplanePage">
+        <div class="container">
+            <h1>Stuff about airplanes</h1>
+        </div>
+        <div class="airplanes">
+            <h3>idk about airplanes</h3>
+        
+
+        </div>
+    </section>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-cta')
+              nav = document.querySelector('nav')
+              mobileMenuExit = document.getElementById('mobile-exit');
+
+              mobileMenu.addEventListener('click', () => {
+                  nav.classList.add('mobile-menu');
+              })
+
+              mobileMenuExit.addEventListener('click', () => {
+                  nav.classList.remove('mobile-menu');
+              })
+    </script>
+    
+</body>
