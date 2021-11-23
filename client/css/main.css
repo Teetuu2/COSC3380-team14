@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+:root {
+  --primary-color: #C0392B;
+  --secondary-color: #F2D7D5;
+}
+
+body {
+  background: white;
+  margin: 0;
+  font-family: 'Roboto Mono';
+}
+
+.menu {
+  background: whitesmoke;
+  padding: 1em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
+}
+
+.menu .logo {
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
+  font-size: 1.2em;
+}
+
+.menu .logo span {
+  color: var(--primary-color);
+}
+
+.menu nav {
+  display: none;
+}
+
+.menu .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: space-between;
+}
+
+.menu .mobile-menu {
+  cursor: pointer;
+}
+
+a {
+  color: #641E16;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding: 5em 2em;
+}
+
+.mainPage {
+  text-align: center;
+  background: url(../images/homescreenairplane.jpeg);
+  padding: none;
+  margin: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.left-col .subheader {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #CD6155;
+  letter-spacing: .3em;
+}
+
+.left-col h1 {
+  font-size: 2.5em;
+  font-weight: bolder;
+  line-height: 1.3em;
+  margin-top: .2em;
+}
+
+.left-col .primary-cta {
+  background: var(--primary-color);
+  color: #F2D7D5;
+  text-decoration: none;
+  padding: .6em 1.3em;
+  font-size: 1.4em;
+  border-radius: 5em;
+  font-weight: bold;
+  display: inline-block;
+}
+
+section.display-tables {
+  background-color: var(--secondary-color);
+}
+
+section.display-tables table {
+  display: none;
+}
+
+section.updating-tables {
+  background-color: var(--secondary-color);
+}
+
+.contact-left h2 {
+  font-size: 1.5em;
+  font-weight: bolder;
+  color: var(--primary-color);
+}
+
+.contact-left label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: .5em;
+}
+
+.contact-left input, .contact-left textarea {
+  width: 100%;
+  padding: .8em;
+  margin-bottom: 1em;
+  border-radius: .3em;
+  border: 1px solid grey;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.contact-left input[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
+  border: none;
+  margin-bottom: 3em;
+  border-radius: 3em;
+  display: inline-block;
+  padding: .8em 2em;
+  width: unset;
+  cursor: pointer;
+}
+
+nav.mobile-menu {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  z-index: 999;
+  width: 66%;
+  right: 0;
+  top: 0;
+  background-color: #F2D7D5;
+  height: 100vh;
+  padding: 1em;
+}
+
+nav ul.primary-nav {
+  margin-top: 5em;
+}
+
+nav li a {
+  color: #641E16;
+  text-decoration: none;
+  display: block;
+  padding: .5em;
+  font-size: 1.3em;
+  text-align: right;
+}
+
+nav li a:hover {
+  font-weight: bold;
+}
+
+.mobile-menu-exit {
+  float: right;
+  margin: .5em;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-menu, .mobile-menu-exit {
+    display: none;
+  }
+  .menu .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 180px auto;
+        grid-template-columns: 180px auto;
+  }
+  .menu nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: none;
+    position: unset;
+    height: auto;
+    width: 100%;
+    padding: 0;
+  }
+  .menu nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .menu nav a {
+    color: #641E16;
+    font-size: 1em;
+    padding: .1em 1em;
+  }
+  .menu nav ul.primary-nav {
+    margin: 0;
+  }
+  .menu nav li.current a {
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .contact {
+    position: relative;
+  }
+  .contact .container {
+    display: block;
+  }
+}
+/*# sourceMappingURL=main.css.map */
