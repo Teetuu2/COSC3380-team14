@@ -60,6 +60,8 @@ section {
 }
 
 .mainPage {
+  color: white;
+  text-shadow: 1px 1px black;
   text-align: center;
   background: url(../images/homescreenairplane.jpeg);
   padding: none;
@@ -104,6 +106,15 @@ section.display-tables table {
 
 section.updating-tables {
   background-color: var(--secondary-color);
+}
+
+section.AboutUs {
+  background-color: white;
+}
+
+section.AboutUs h2 {
+  font-size: 2em;
+  color: var(--primary-color);
 }
 
 section.AboutUs .aboutus-left {
@@ -155,7 +166,6 @@ section.contact .contact-left input[type="submit"] {
   width: unset;
   cursor: pointer;
 }
-
 
 nav.mobile-menu {
   display: block;
