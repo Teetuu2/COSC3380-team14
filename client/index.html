@@ -10,7 +10,7 @@
 <body>
     <div class = "menu">            <!--allows name to be referenced as a selector in css, style it in css-->
         <div class="container">
-            <a class="logo" href="#menu">Airbus<span>Logistics</span></a>
+            <a class="logo" href="#">Airbus<span>Logistics</span></a>
             <img id="mobile-cta" class="mobile-menu" src="images/menu.svg" alt="Open Navigator">
 
             <nav>
@@ -18,15 +18,15 @@
                 <ul class="primary-nav">
                     <li class="page"><a href="#">Home</a></li>
                     <li><a href="#flightsPage">Flights</a></li>
-                    <li><a href="#">Boarding</a></li>
-                    <li><a href="#">Check-in</a></li>
+                    <li><a href="./boarding.html">Boarding</a></li>
+                    <li><a href="./check-in.html">Check-in</a></li>
                 </ul>
                 <ul class="secondary-nav">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#AboutUs">About Us</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
                 </ul>
             </nav>
-        </div>    
+        </div>    <!--used . to create class with typing everything-->
     </div>
 
     <section class="mainPage">
@@ -40,13 +40,23 @@
             </div>
     </section>
 
-    <section class="flightsPage">
-        <label>From:</label>
-        <input type="text" id="name-input">
-        <label>To:</label>
-        <input type="text" id="name-input2">
+    <section id="flightsPage" class="flightsPage">
+        <div>
+            <label for="From">From:</label>
+            <input type="text" id="From" name="From" required>
+            <label for="To">To:</label>
+            <input type="text" id="To" name="To" required>
+        </div>
+        <div>
+             
+        </div>
+        <div>
+            <label for="NumofPas">Number of passengers:</label>
+            <input type="number" name="numpass" id="numpass" min="0" max="10">
+        </div>
+       <button id="search-btn">Search</button>
 
-        <button id="search-btn">Search</button>
+        
 
         
 
@@ -66,7 +76,7 @@
                 <option value="tablename"></option>
                 <option value="tablename"></option>
             </datalist>
-         </div>
+         </div>    
          <!--Div below displays the passenger table-->
         <div class="exampleTable">
             <table id="examp1" class="Table1">
@@ -127,6 +137,28 @@
         </div>
     </section>
 
+
+    <section id="AboutUs" class="AboutUs">
+        <div class="container"> 
+            <div class="aboutus-left">
+                <h2>About Us</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div class="aboutus-right">
+                <img id="flightcrew-cta" class="flightcrew" src="images/flightcrew.jpeg" alt="flightcrewmember">
+            </div>
+        </div>
+        
+
+    </section>
+
+
+
     <section class="contact">
         <div class="container">
             <div class="contact-left">
@@ -168,6 +200,10 @@
           tab1.addEventListener('select', () => {
               table.classList.add('Table1');
           })
+</script>
+
+<script>
+    
 </script>
 
 
