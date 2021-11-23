@@ -4,27 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>Target 3 app</title>
+    <title>Target 3 Hw3</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
-    <main>
-        <label>Flight ID:</label>
+    <div class = "menu">            <!--allows name to be referenced as a selector in css, style it in css-->
+        <div class="container">
+            <a class="logo" href="#menu">Airbus<span>Logistics</span></a>
+            <img id="mobile-cta" class="mobile-menu" src="images/menu.svg" alt="Open Navigator">
+
+            <nav>
+                <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close Navigator">
+                <ul class="primary-nav">
+                    <li class="page"><a href="#">Home</a></li>
+                    <li><a href="#flightsPage">Flights</a></li>
+                    <li><a href="#">Booking</a></li>
+                    <li><a href="#">Check-in</a></li>
+                </ul>
+                <ul class="secondary-nav">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>    <!--used . to create class with typing everything-->
+    </div>
+
+    <section class="mainPage">
+        <div class="container">
+            <div class="left-col">
+                <p class="subheader">Book With Us Today</p>
+                <h1>Flight Management Made Easy!</h1>
+                <div class="mainPage-cta">
+                    <a href="#" class="primary-cta">Book TODAY!</a>
+                </div>
+            </div>
+    </section>
+
+    <section class="flightsPage">
+        <label>From:</label>
         <input type="text" id="name-input">
         <button id="search-btn">Search</button>
 
-        <!--Div below displays the passenger table-->
-        <div>
-            <table id="table">
+        
+
+    </section>
+
+    <section class="display-tables">
+        <div class="container">
+            <label for="display">What table would you like to display?</label>
+            <input list="displays" id="display" name="display">
+            <datalist id="displays">
+                <option value="examp1"></option>
+                <option value="tablename"></option>
+                <option value="tablename"></option>
+                <option value="tablename"></option>
+                <option value="tablename"></option>
+                <option value="tablename"></option>
+                <option value="tablename"></option>
+                <option value="tablename"></option>
+            </datalist>
+         </div>
+         <!--Div below displays the passenger table-->
+        <div class="exampleTable">
+            <table id="examp1" class="Table1">
                 <thead>
-                    <th>Passport ID</th>
-                    <th>Ticket Number</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Contact</th>
+                    <tr>
+                        <th scope="col">Passport ID</th>
+                        <th scope="col">Ticket Number</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Contact</th>
+                    </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <tr>
+                        <td>12345</td>
+                        <td>14</td>
+                        <td>Smith</td>
+                        <td>John</td>
+                        <td>jsmith@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>12346</td>
+                        <td>15</td>
+                        <td>Doe</td>
+                        <td>Jane</td>
+                        <td>jdoe@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>12347</td>
+                        <td>16</td>
+                        <td>Last</td>
+                        <td>First</td>
+                        <td>fl@gmail.com</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
@@ -35,7 +109,65 @@
         <div>
             <!--Add another useful table-->
         </div>
-    </main>
-    <script src="index.js"></script>
+
+       
+    </section>
+
+    <section class="updating-tables">
+        <div class="container">
+            <label for="update">What would you like to do to the table?</label>
+            <input list="updates" id="update" name="update">
+            <datalist id="updates">
+                <option value="insert"></option>
+                <option value="delete"></option>
+            </datalist>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-left">
+                <h2>Contact</h2>
+
+                <form action="">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email@email.com">
+
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Type here..."></textarea>
+
+                    <input type="submit" class="send-mess-cta" value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-cta')
+              nav = document.querySelector('nav')
+              mobileMenuExit = document.getElementById('mobile-exit');
+
+              mobileMenu.addEventListener('click', () => {
+                  nav.classList.add('mobile-menu');
+              })
+
+              mobileMenuExit.addEventListener('click', () => {
+                  nav.classList.remove('mobile-menu');
+              })
+    </script>
+
+<script>
+    const tab1 = document.getElementById('examp1')
+          disp = document.querySelector('table')
+          tab1.addEventListener('select', () => {
+              table.classList.add('Table1');
+          })
+</script>
+
+
+
 </body>
 </html>
