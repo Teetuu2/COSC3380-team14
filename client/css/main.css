@@ -89,7 +89,7 @@ section {
   background: var(--primary-color);
   color: #F2D7D5;
   text-decoration: none;
-  padding: .6em 1.3em;
+  padding: .5em 1.2em;
   font-size: 1.4em;
   border-radius: 5em;
   font-weight: bold;
@@ -157,12 +157,12 @@ section.contact .contact-left input[type="submit"] {
   background-color: var(--primary-color);
   color: white;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.2em;
   border: none;
-  margin-bottom: 3em;
-  border-radius: 3em;
+  margin-bottom: 2.5em;
+  border-radius: 2.5em;
   display: inline-block;
-  padding: .8em 2em;
+  padding: .7em 1em;
   width: unset;
   cursor: pointer;
 }
@@ -192,7 +192,7 @@ nav li a {
   display: block;
   padding: .5em;
   font-size: 1.3em;
-  text-align: right;
+  text-align: center;
 }
 
 nav li a:hover {
@@ -253,5 +253,13 @@ nav li a:hover {
   .contact .container {
     display: block;
   }
+}
+
+.FAQpage h1 {
+  color: var(--primary-color);
+}
+
+.FAQpage li a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=main.css.map */
