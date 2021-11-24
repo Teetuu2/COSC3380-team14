@@ -100,7 +100,7 @@ section.display-tables {
   background-color: var(--secondary-color);
 }
 
-section.display-tables table {
+section.display-tables .exampleTable table {
   display: none;
 }
 
@@ -255,11 +255,88 @@ nav li a:hover {
   }
 }
 
+.FAQpage {
+  background-color: #F2D7D5;
+}
+
 .FAQpage h1 {
+  font-weight: bolder;
+  font-size: 2em;
   color: var(--primary-color);
 }
 
+.FAQpage h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 .FAQpage li a {
+  font-size: 1.2em;
   text-decoration: none;
+}
+
+.boardingPage {
+  background-color: #F2D7D5;
+}
+
+.boardingPage h1 {
+  font-weight: bolder;
+  font-size: 2em;
+  color: var(--primary-color);
+}
+
+.boardingPage h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.airplanePage {
+  background-color: #F2D7D5;
+}
+
+.airplanePage h1 {
+  font-weight: bolder;
+  font-size: 2em;
+  color: var(--primary-color);
+}
+
+.airplanePage h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.flightsPage {
+  background-color: #F2D7D5;
+}
+
+.flightsPage h1 {
+  font-weight: bolder;
+  font-size: 2em;
+  color: var(--primary-color);
+}
+
+.flightsPage h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.flightsPage .From-to label, .flightsPage .numPass label {
+  color: var(--primary-color);
+  font-size: 1em;
+}
+
+.flightsPage button {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  border: none;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-radius: 1.5em;
+  display: inline-block;
+  padding: .7em 1em;
+  width: auto;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
