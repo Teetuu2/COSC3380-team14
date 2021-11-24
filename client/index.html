@@ -17,7 +17,7 @@
                 <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close Navigator">
                 <ul class="primary-nav">
                     <li class="page"><a href="index.html">Home</a></li>
-                    <li><a href="#flightsPage">Flights</a></li>
+                    <li><a href="./flights.html">Flights</a></li>
                     <li><a href="./boarding.html">Boarding</a></li>
                     <li><a href="./Airplane.html">Airplane</a></li>
                 </ul>
@@ -40,46 +40,25 @@
             </div>
     </section>
 
-    <section id="flightsPage" class="flightsPage">
-        <div>
-            <label for="From">From:</label>
-            <input type="text" id="From" name="From" required>
-            <label for="To">To:</label>
-            <input type="text" id="To" name="To" required>
-        </div>
-        <div>
-             
-        </div>
-        <div>
-            <label for="NumofPas">Number of passengers:</label>
-            <input type="number" name="numpass" id="numpass" min="0" max="10">
-        </div>
-       <button id="search-btn">Search</button>
-
-        
-
-        
-
-    </section>
-
     <section class="display-tables">
         <div class="container">
-            <label for="display">What table would you like to display?</label>
-            <input list="displays" id="display" name="display">
-            <datalist id="displays">
-                <option value="examp1"></option>
-                <option value="tablename"></option>
-                <option value="tablename"></option>
-                <option value="tablename"></option>
-                <option value="tablename"></option>
-                <option value="tablename"></option>
-                <option value="tablename"></option>
-                <option value="tablename"></option>
-            </datalist>
-         </div>    
+            <label for="displays">What table would you like to display?</label>
+            <select id="displays" name="displays" onchange="return showTable();">
+                <option value="" disabled selected>Select a table</option>
+                <option value="examp1">Examp1</option>
+                <option value="tablename1">Tablename1</option>
+                <option value="tablename2">Tablename2</option>
+                <option value="tablename3">Tablename3</option>
+                <option value="tablename4">Tablename4</option>
+                <option value="tablename5">Tablename5</option>
+                <option value="tablename6">Tablename6</option>
+                <option value="tablename7">Tablename7</option>
+            </select>
+        </div> 
+         
          <!--Div below displays the passenger table-->
         <div class="exampleTable">
-            <table id="examp1" class="Table1">
+            <table id="examp1">
                 <thead>
                     <tr>
                         <th scope="col">Passport ID</th>
@@ -128,12 +107,12 @@
 
     <section class="updating-tables">
         <div class="container">
-            <label for="update">What would you like to do to the table?</label>
-            <input list="updates" id="update" name="update">
-            <datalist id="updates">
-                <option value="insert"></option>
-                <option value="delete"></option>
-            </datalist>
+            <label for="updates">What would you like to do to the table?</label>
+            <select id="updates" name="updates">
+                <option value="" disabled selected>Select an Action</option>
+                <option value="insert">Insert</option>
+                <option value="delete">Delete</option>
+            </select>
         </div>
     </section>
 
@@ -198,17 +177,6 @@
               })
     </script>
 
-<script>
-    const tab1 = document.getElementById('examp1')
-          disp = document.querySelector('table')
-          tab1.addEventListener('select', () => {
-              table.classList.add('Table1');
-          })
-</script>
-
-<script>
-
-</script>
 
 
 
