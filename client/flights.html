@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target 3 Hw3</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="menu" class = "menu">            
+        <div class="container">
+            <a class="logo" href="#menu">Airbus<span>Logistics</span></a>
+            <img id="mobile-cta" class="mobile-menu" src="images/menu.svg" alt="Open Navigator">
+
+            <nav>
+                <img id="mobile-exit" class="mobile-menu-exit" src="images/exit.svg" alt="Close Navigator">
+                <ul class="primary-nav">
+                    <li class="page"><a href="index.html">Home</a></li>
+                    <li><a href="./flights.html">Flights</a></li>
+                    <li><a href="./boarding.html">Boarding</a></li>
+                    <li><a href="./Airplane.html">Airplane</a></li>
+                </ul>
+                <ul class="secondary-nav">
+                    <li><a href="#AboutUs">About Us</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>    
+    </div>
+
+    <section id="flightsPage" class="flightsPage">
+        <div class="container">
+            <h1>Stuff about boarding</h1>
+        </div>
+        <div class="aboarding">
+            <h3>idk about boarding</h3>
+        </div>
+
+        <div class="From-to">
+            <label for="From">From:</label>
+            <input type="text" id="From" name="From" required>
+            <label for="To">To:</label>
+            <input type="text" id="To" name="To" required>
+        </div>
+
+        <div class="numPass">
+            <label for="NumofPas">Number of passengers:</label>
+            <input type="number" name="numpass" id="numpass" min="0" max="10">
+        </div>
+       <button id="search-btn">Search</button>
+
+        
+
+        
+
+    </section>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-cta')
+              nav = document.querySelector('nav')
+              mobileMenuExit = document.getElementById('mobile-exit');
+
+              mobileMenu.addEventListener('click', () => {
+                  nav.classList.add('mobile-menu');
+              })
+
+              mobileMenuExit.addEventListener('click', () => {
+                  nav.classList.remove('mobile-menu');
+              })
+    </script>
+
+
+
+
+</body>
+</html>
