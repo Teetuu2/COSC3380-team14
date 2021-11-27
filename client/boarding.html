@@ -23,26 +23,57 @@
                 </ul>
                 <ul class="secondary-nav">
                     <li><a href="index.html#AboutUs">About Us</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="./links.html">LINKS</a></li>
                 </ul>
             </nav>
         </div>   
     </div>
 
-    <section class="boardingPage">
+    <section id="boardingPage" class="boardingPage">
         <div class="container">
-            <h1>Stuff about boarding</h1>
-        </div>
-        <div class="aboarding">
-            <h3>idk about boarding</h3>
-        
-
+            <div class="topOfboarding">
+                <h1>Title for boarding</h1>
+                <h3>Subtitle for boarding</h3>
+            </div>
+            <div class="boardingtable">
+                <table class="boardingtemptable" id="boardingtemptable">
+                    <thead>
+                        <tr>
+                            <th id="boardingid">Boarding ID</th>
+                            <th id="flightid">Flight ID</th>
+                            <th id="ticketnum">Ticket Number</th>
+                            <th id="boardingtime">Boarding Time</th>
+                            <th id="Gate">Gate</th>
+                            <th id="seatnumber">Seat Number</th>
+                            <th id="checkin">Check-In</th>
+                            <th id="bagclaimno">Baggage Claim NO.</th>
+                            <th id="edit">Edit</th>
+                            <th id="delete">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="boardingtemptable">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
+                <div class="modalDialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="modalbtn" data-dismiss="modal" aria-label="modalbtn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="closebtn" data-dismiss="modal">CLOSE</button>
+                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section>
-
-    </section>
     
 
     <script>
@@ -57,6 +88,25 @@
               mobileMenuExit.addEventListener('click', () => {
                   nav.classList.remove('mobile-menu');
               })
+    </script>
+
+
+    <script>
+        //modal element
+        const modal = document.getElementById('modal');
+        //modal open button
+        const modalbtn = document.getElementById('modalbtn');
+        //close button
+        const closebtn = document.getElementById('closebtn');
+        //save button
+        const savebtn = document.getElementById('savebtn');
+
+        modal.addEventListener('click', openModal);
+
+        function openModal(){
+            modal.style.display = 'block';
+        }
+
     </script>
    
     

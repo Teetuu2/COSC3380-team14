@@ -23,7 +23,7 @@
                 </ul>
                 <ul class="secondary-nav">
                     <li><a href="#AboutUs">About Us</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="./links.html">LINKS</a></li>
                 </ul>
             </nav>
         </div>    
@@ -31,29 +31,45 @@
 
     <section id="flightsPage" class="flightsPage">
         <div class="container">
-            <h1>Stuff about flights</h1>
+            <div class="topOfFlights">
+                <h1>Title for flights</h1>
+                <h3>Subtitle for flights</h3>
+            </div>
+            <div class="flightstable">
+                <table class="flighttemptable" id="flighttemptable">
+                    <thead>
+                        <tr>
+                            <th id="flightid">Flight ID</th>
+                            <th id="departuretime">Departure Time</th>
+                            <th id="landingtime">Landing Time</th>
+                            <th id="departureairport">Departure Airport</th>
+                            <th id="arrivaltime">Arrival Airport</th>
+                            <th id="status">Status</th>
+                            <th id="edit">Edit</th>
+                            <th id="delete">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="flighttemptable">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
+                <div class="modalDialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="modalbtn" data-dismiss="modal" aria-label="modalbtn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="closebtn" data-dismiss="modal">CLOSE</button>
+                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="aboarding">
-            <h3>idk about flights</h3>
-        </div>
-
-        <div class="From-to">
-            <label for="From">From:</label>
-            <input type="text" id="From" name="From" required>
-            <label for="To">To:</label>
-            <input type="text" id="To" name="To" required>
-        </div>
-
-        <div class="numPass">
-            <label for="NumofPas">Number of passengers:</label>
-            <input type="number" name="numpass" id="numpass" min="0" max="10">
-        </div>
-       <button id="search-btn">Search</button>
-
-        
-
-        
-
     </section>
 
     <script>
@@ -70,8 +86,25 @@
               })
     </script>
 
+    <script>
+        //modal element
+        const modal = document.getElementById('modal');
+        //modal open button
+        const modalbtn = document.getElementById('modalbtn');
+        //close button
+        const closebtn = document.getElementById('closebtn');
+        //save button
+        const savebtn = document.getElementById('savebtn');
+
+        modal.addEventListener('click', openModal);
+
+        function openModal(){
+            modal.style.display = 'block';
+        }
+
+    </script>
 
 
-
+<script src="script.js"></script>
 </body>
 </html>

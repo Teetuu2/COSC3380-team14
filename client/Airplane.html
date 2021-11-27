@@ -23,20 +23,53 @@
                 </ul>
                 <ul class="secondary-nav">
                     <li><a href="index.html#AboutUs">About Us</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
+                    <li><a href="./links.html">LINKS</a></li>
                 </ul>
             </nav>
         </div>   
     </div>
 
-    <section class="airplanePage">
+    <section id="airplanePage" class="airplanePage">
         <div class="container">
-            <h1>Stuff about airplanes</h1>
-        </div>
-        <div class="airplanes">
-            <h3>idk about airplanes</h3>
-        
-
+            <div class="topOfAirplane">
+                <h1>Title for airplane</h1>
+                <h3>Subtitle for airplane</h3>
+            </div>
+            <div class="airplanetable">
+                <table class="airplanetemptable" id="airplanetemptable">
+                    <thead>
+                        <tr>
+                            <!--edit to the names of the columns for airplanes-->
+                            <th id="flightid">Flight ID</th>
+                            <th id="departuretime">Departure Time</th>
+                            <th id="landingtime">Landing Time</th>
+                            <th id="departureairport">Departure Airport</th>
+                            <th id="arrivaltime">Arrival Airport</th>
+                            <th id="status">Status</th>
+                            <th id="edit">Edit</th>
+                            <th id="delete">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="airplanetemptable">
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
+                <div class="modalDialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="modalbtn" data-dismiss="modal" aria-label="modalbtn">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="closebtn" data-dismiss="modal">CLOSE</button>
+                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -53,5 +86,23 @@
                   nav.classList.remove('mobile-menu');
               })
     </script>
+
+<script>
+    //modal element
+    const modal = document.getElementById('modal');
+    //modal open button
+    const modalbtn = document.getElementById('modalbtn');
+    //close button
+    const closebtn = document.getElementById('closebtn');
+    //save button
+    const savebtn = document.getElementById('savebtn');
+
+    modal.addEventListener('click', openModal);
+
+    function openModal(){
+        modal.style.display = 'block';
+    }
+
+</script>
     
 </body>
