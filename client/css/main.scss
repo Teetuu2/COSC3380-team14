@@ -189,7 +189,7 @@ nav.mobile-menu{
 nav{
     position: fixed;
     z-index: 999;
-    width: 66%;
+    width: 45%;
     right: 0;
     top: 0;
     background-color: #F2D7D5;
@@ -275,18 +275,13 @@ nav{
 
 }
 
-.FAQpage{
+.LINKSpage{
     background-color: #F2D7D5;
 
     h1{
         font-weight: bolder;
         font-size: 2em;
         color: var(--primary-color);
-    }
-    
-    h3{
-        font-size: 1.5em;
-        font-weight: bold;
     }
 
     li{
@@ -301,57 +296,29 @@ nav{
 
     background-color: #F2D7D5;
 
-    h1{
+    .topOfboarding{
+        h1{
         font-weight: bolder;
         font-size: 2em;
         color: var(--primary-color);
-    }
+        }
 
-    h3{
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-    
-}
-
-.airplanePage{
-    background-color: #F2D7D5;
-
-    h1{
-        font-weight: bolder;
-        font-size: 2em;
-        color: var(--primary-color);
-    }
-
-    h3{
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-
-}
-
-.flightsPage{
-    background-color: #F2D7D5;
-
-    h1{
-        font-weight: bolder;
-        font-size: 2em;
-        color: var(--primary-color);
-    }
-
-    h3{
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-
-    .From-to, .numPass{
-        
-        label{
-            color: var(--primary-color);
-            font-size: 1em;
+        h3{
+            font-size: 1.5em;
+            font-weight: bold;
         }
     }
 
+    
+
+    .boardingtable{
+        table, th, tr{
+
+            border: 2px groove var(--primary-color);
+            border-collapse: collapse;
+            padding: 1em;
+        }
+    }
     button{
         background-color: var(--primary-color);
         color: white;
@@ -367,5 +334,158 @@ nav{
         cursor: pointer;
         
     }
+
+    .modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: rgba($color: #CD6155, $alpha: 0.5);
+    }
+    .modal-content{
+        background-color: #CD6155;
+        margin: 30% auto;
+        padding: 20px;
+        width: 75%;
+        box-shadow: 0 5px 8px 0 rgba($color: #641E16, $alpha: 0.3), 0 7px 20px 0 rgba($color: #641E16, $alpha: 0.5);
+    }
+
+
+
+
+    
+}
+
+.airplanePage{
+    background-color: #F2D7D5;
+
+    .topOfAirplane{
+        h1{
+        font-weight: bolder;
+        font-size: 2em;
+        color: var(--primary-color);
+        }
+
+        h3{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+
+    
+
+    .airplanetable{
+        table, th, tr{
+
+            border: 2px groove var(--primary-color);
+            border-collapse: collapse;
+            padding: 1em;
+        }
+    }
+    
+    button{
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+        font-size: 1em;
+        border: none;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        border-radius: 1.5em;
+        display: inline-block;
+        padding: .7em 1em;
+        width: auto;
+        cursor: pointer;
+        
+    }
+
+    .modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: rgba($color: #CD6155, $alpha: 0.5);
+    }
+    .modal-content{
+        background-color: #CD6155;
+        margin: 30% auto;
+        padding: 20px;
+        width: 75%;
+        box-shadow: 0 5px 8px 0 rgba($color: #641E16, $alpha: 0.3), 0 7px 20px 0 rgba($color: #641E16, $alpha: 0.5);
+    }
+
+
+}
+
+.flightsPage{
+   background-color: #F2D7D5;
+
+
+    .topOfFlights{
+        
+         h1{
+        font-weight: bolder;
+        font-size: 2em;
+        color: var(--primary-color);
+        }
+
+        h3{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+
+    .flightstable{
+        table, th, tr{
+
+            border: 2px groove var(--primary-color);
+            border-collapse: collapse;
+            padding: 1em;
+        }
+    }
+    button{
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: bold;
+        font-size: 1em;
+        border: none;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        border-radius: 1.5em;
+        display: inline-block;
+        padding: .7em 1em;
+        width: auto;
+        cursor: pointer;
+        
+    }
+
+    .modal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        background-color: rgba($color: #CD6155, $alpha: 0.5);
+    }
+    .modal-content{
+        background-color: #CD6155;
+        margin: 30% auto;
+        padding: 20px;
+        width: 75%;
+        box-shadow: 0 5px 8px 0 rgba($color: #641E16, $alpha: 0.3), 0 7px 20px 0 rgba($color: #641E16, $alpha: 0.5);
+    }
+
+
 
 }
