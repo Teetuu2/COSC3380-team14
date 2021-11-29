@@ -8,16 +8,28 @@ app.use(express.static('public'));
 app.use(cors());
 app.use(express.json());
 
+pool.connect()
+
 //get all
 app.get('/flights', async(req, res)=>{
     try{
-        await pool.connect()
         console.log("flights connected");
         const allDemos = await pool.query(`SELECT * FROM flight`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
-        await pool.end()
         console.log("flights disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/boarding', async(req, res)=>{
+    try{
+        console.log("boarding connected");
+        const allDemos = await pool.query(`SELECT * FROM boarding`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("boarding disconnected")
     } catch(err){
         console.log(err.message);
     }
