@@ -1,11 +1,6 @@
 const { Pool } = require('pg');
+var pg = require('pg');
 
-const pool = new Pool({
-  host: "kashin.db.elephantsql.com",
-  user: "onkwqgmw",
-  password: "a6PHKnm_J7dhj58jKcXvyc06cKR3seMF",
-  database: "onkwqgmw",
-  port: 5432
-});
-
+const conString = "postgres://onkwqgmw:a6PHKnm_J7dhj58jKcXvyc06cKR3seMF@kashin.db.elephantsql.com/onkwqgmw"
+const pool = new pg.Client(conString);
 module.exports = pool;
