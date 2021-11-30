@@ -18,8 +18,7 @@ const displayDemos = () => {
         <th>${flight.boarding_time}</th>
         <th>${flight.gate}</th>
         <th>${flight.seat_no}</th>
-        <th>${flight.hascheckin}</th>
-        <th>${flight.baggage_claim}</th>
+        <th>${flight.baggage_id}</th>
         </tr>`;
     })
     demoTable.innerHTML = tableHTML
