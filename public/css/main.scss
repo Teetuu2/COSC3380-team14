@@ -261,6 +261,10 @@ nav{
         }
 
     }
+    table{
+        table-layout: fixed;
+        text-overflow: hidden;
+    }
 }
 
 @media only screen and (min-width: 1080px){
@@ -317,7 +321,9 @@ nav{
             border: 2px groove var(--primary-color);
             border-collapse: collapse;
             padding: 1em;
+            font-weight: 1em;
         }
+
     }
     button{
         background-color: var(--primary-color);
@@ -465,6 +471,12 @@ nav{
         width: auto;
         cursor: pointer;
         
+    }
+
+    .flight-search{
+        input{
+            
+        }
     }
 
     .modal{
