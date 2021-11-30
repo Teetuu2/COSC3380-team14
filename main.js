@@ -14,7 +14,9 @@ pool.connect()
 app.get('/flights', async(req, res)=>{
     try{
         console.log("flights connected");
-        const allDemos = await pool.query(`SELECT * FROM flight`);
+        pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await pool.query(`SELECT * FROM flight;`);
+        pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("flights disconnected")
@@ -26,7 +28,23 @@ app.get('/flights', async(req, res)=>{
 app.get('/boarding', async(req, res)=>{
     try{
         console.log("boarding connected");
+        pool.query(`BEGIN TRANSACTION;`);
         const allDemos = await pool.query(`SELECT * FROM boarding`);
+        pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("boarding disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/Airplane', async(req, res)=>{
+    try{
+        console.log("boarding connected");
+        pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await pool.query(`SELECT * FROM boarding`);
+        pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("boarding disconnected")
