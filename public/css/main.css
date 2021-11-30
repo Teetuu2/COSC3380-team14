@@ -244,6 +244,10 @@ nav li a:hover {
   .menu nav li.current a {
     font-weight: bold;
   }
+  table {
+    table-layout: fixed;
+    text-overflow: hidden;
+  }
 }
 
 @media only screen and (min-width: 1080px) {
@@ -289,6 +293,7 @@ nav li a:hover {
   border: 2px groove var(--primary-color);
   border-collapse: collapse;
   padding: 1em;
+  font-weight: 1em;
 }
 
 .boardingPage button {
