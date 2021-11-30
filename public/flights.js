@@ -19,6 +19,7 @@ const displayDemos = () => {
         <th>${flight.arrival_time}</th>
         <th>${flight.departure_airport}</th>
         <th>${flight.arrival_airport}</th>
+        <th>${flight.edit}</th>
         </tr>`;
     })
     demoTable.innerHTML = tableHTML
