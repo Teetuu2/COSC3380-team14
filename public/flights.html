@@ -37,20 +37,14 @@
             </div>
 
             <div class="flight-search"> 
-                Flight ID: <br><input type="text" id="flightid">
-                <input type="submit" value="Search">
+                Flight ID: <input type="text" id="flightid">
+                <button onclick="searchfunc()" id="butt1">Search</button>
                 <br>
-                Departure Airport: <br><input type="text" id="departuretime">
-                <input type="submit" value="Search">
+                Departure Airport: <input type="text" id="departureairport">
+                <button onclick="searchfunc()" id="butt2">Search</button>
                 <br>
-                Arrival Airport: <br><input type="text" id="arrivaltime">
-                <input type="submit" value="Search">
-                <br>
-                Departure Date: <br><input type="text" id="arrivaltime">
-                <input type="submit" value="Search">
-                <br>
-                Arrival Date: <br><input type="text" id="arrivaltime">
-                <input type="submit" value="Search">
+                Arrival Airport: <input type="text" id="arrivalairpirt">
+                <button onclick="searchfunc()" id="butt3">Search</button>
                 <br>
                 
             </div>
@@ -122,6 +116,15 @@
             modal.style.display = 'block';
         }
 
+    </script>
+
+
+    <script>
+        function searchfunc(){
+            var flight_input = document.getElementById("flightid").value;
+            var dep_arpt_input = document.getElementById("departureairport").value;
+            var arriv_arpt_input = document.getElementById("arrivalairport").value;
+        }
     </script>
 
 
