@@ -38,10 +38,10 @@
 
             <div class="airplane-search"> 
                 Aircraft Code: <br><input type="text" id="aircraftcode">
-                <input type="submit" value="Search">
+                <button onclick="searchfunc()" id="butt1">Search</button>
                 <br>
                 Model: <br><input type="text" id="modeltype">
-                <input type="submit" value="Search">
+                <button onclick="searchfunc()" id="butt2">Search</button>
                 <br>
                 
             </div>
@@ -109,6 +109,14 @@
         modal.style.display = 'block';
     }
 
+</script>
+
+
+<script>
+    function searchfunc(){
+        var flight_input = document.getElementById("aircraftcode").value;
+        var dep_arpt_input = document.getElementById("modeltype").value;
+    }
 </script>
     
 </body>
