@@ -36,21 +36,16 @@
                 <h3>Search boarding information</h3>
             </div>
 
-            <div class="boarding-search"> 
-                Boarding ID: <br><input type="text" id="boardingid">
-                <input type="submit" value="Search">
+            <div class="boarding-search">
+                Boarding ID: <input type="text" id="flightid">
+                <button onclick="searchfunc()" id="butt1">Search</button>
                 <br>
-                Flight ID: <br><input type="text" id="flightid">
-                <input type="submit" value="Search">
+                Flight ID: <input type="text" id="departureairport">
+                <button onclick="searchfunc()" id="butt2">Search</button>
                 <br>
-                Ticket Number: <br><input type="text" id="arrivaltime">
-                <input type="submit" value="Search">
+                Ticket Number: <input type="text" id="arrivalairpirt">
+                <button onclick="searchfunc()" id="butt3">Search</button>
                 <br>
-                Baggage ID: <br><input type="text" id="baggageid">
-                <input type="submit" value="Search">
-                <br>
-                
-                
             </div>
             <br>
             <div class="boardingtable">
@@ -124,6 +119,14 @@
         }
 
     </script>
+
+<script>
+    function searchfunc(){
+        var flight_input = document.getElementById("boardingid").value;
+        var dep_arpt_input = document.getElementById("flightid").value;
+        var arriv_arpt_input = document.getElementById("ticketnumber").value;
+    }
+</script>
 
 <script src="boarding.js"></script>
     
