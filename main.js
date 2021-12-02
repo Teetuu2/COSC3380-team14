@@ -3,6 +3,7 @@ const path = require('path')
 const app = express();
 const cors = require('cors');
 const pool = require('./creds');
+var {flight_inputs} = require('./public/flights');
 
 app.use(express.static('public'));
 app.use(cors());
@@ -29,7 +30,7 @@ app.get('/flightID', async(req, res)=>{
     try{
         console.log("flightsID connected");
         pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${inputs.flight_input}';`);
+        const allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${flight_inputs}';`);
         pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);

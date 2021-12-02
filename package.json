@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-handlebars": "^6.0.2",
     "pg": "^8.7.1"
@@ -16,6 +17,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
     "nodemon": "^2.0.15"
   }
 }

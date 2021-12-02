@@ -59,6 +59,7 @@ function searchfunc(){
         var flight_input = document.getElementById("flightid").value;
         var dep_arpt_input = document.getElementById("departureairport").value;
         var arriv_arpt_input = document.getElementById("arrivalairport").value;
+        alert("test");
         selectFlightID()
     } catch (err) {
         console.log(err.message);
