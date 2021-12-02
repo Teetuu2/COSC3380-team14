@@ -36,7 +36,8 @@
                 <h3>Search for flights</h3>
             </div>
 
-            <div class="flight-search"> 
+            <form action="./flights.js">
+                <div class="flight-search"> 
                 Flight ID: <input type="text" id="flightid">
                 <button onclick="searchfunc()" id="butt1">Search</button>
                 <br>
@@ -46,8 +47,9 @@
                 Arrival Airport: <input type="text" id="arrivalairpirt">
                 <button onclick="searchfunc()" id="butt3">Search</button>
                 <br>
-                
             </div>
+            </form>
+            
             <br>
             <div class="flightstable">
                 <table class="flighttemptable" id="flighttemptable">
@@ -122,7 +124,7 @@
     <script>
         function searchfunc(){
             var flight_input = document.getElementById("flightid").value;
-            alert("this is what was entered" + flight_input);
+            alert("this is what was entered " + flight_input);
             var dep_arpt_input = document.getElementById("departureairport").value;
             var arriv_arpt_input = document.getElementById("arrivalairport").value;
         }
