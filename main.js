@@ -25,6 +25,20 @@ app.get('/flights', async(req, res)=>{
     }
 });
 
+app.get('/flightID', async(req, res)=>{
+    try{
+        console.log("flightsID connected");
+        pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${inputs.flight_input}';`);
+        pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("flights disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
 app.get('/boarding', async(req, res)=>{
     try{
         console.log("boarding connected");

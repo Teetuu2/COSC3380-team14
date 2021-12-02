@@ -1,4 +1,4 @@
-let demos = []
+let demos = [];
 
 const setDemos = (data) => {
     demos = data;
@@ -29,16 +29,37 @@ selectDemos();
 console.log("Arrived at script")
 
 async function selectDemos() {
-    // use try... catch... to catch error
     try {
         const response = await fetch("http://localhost:5000/flights")
-        // connect to heroku, remove localhost:port
-        // const response = await fetch("/demos")
         const jsonData = await response.json();
         console.log("script.js")
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectFlightID() {
+    try {
+        const response = await fetch("http://localhost:5000/flightID")
+        const jsonData = await response.json();
+        console.log("script.js")
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchfunc(){
+    try {
+        var flight_input = document.getElementById("flightid").value;
+        var dep_arpt_input = document.getElementById("departureairport").value;
+        var arriv_arpt_input = document.getElementById("arrivalairport").value;
+        selectFlightID()
     } catch (err) {
         console.log(err.message);
     }
