@@ -50,6 +50,7 @@ app.get('/flightID/:flight/:dept/:arr', async(req, res)=>{
         console.log("flightsID connected");
         await pool.query(`BEGIN TRANSACTION;`);
         //switch can go here for depending on user input
+        //search for things that are only not "-1234" (see flights.js)
         const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE flight_id='${flight}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)

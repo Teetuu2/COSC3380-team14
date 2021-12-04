@@ -62,7 +62,7 @@ function searchfunc(){
             if (inputCheck[i] === ""){
                 inputCheck[i] = "-1234"
             }
-        }
+        } // this will allow function in main to decide what params to query off of
         selectFlightID(inputCheck[0],inputCheck[1],inputCheck[2]);
     } catch (err) {
         console.log(err.message);
