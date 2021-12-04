@@ -24,17 +24,10 @@ const displayDemos = () => {
     demoTable.innerHTML = tableHTML
 }
 
-selectDemos();
-console.log("Arrived at script")
-
 async function selectDemos() {
-    // use try... catch... to catch error
     try {
         const response = await fetch("http://localhost:5000/boarding")
-        // connect to heroku, remove localhost:port
-        // const response = await fetch("/demos")
         const jsonData = await response.json();
-        console.log("script.js")
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -43,10 +36,13 @@ async function selectDemos() {
     }
 }
 
-async function selectInput() {
+async function selectBoarding(boarding_input, flight_ID, ticket_number) {
     try {
-        let response = await fetch("http://localhost:5000/boardingInput")
-        let jsonData = await response.json();
+        const response = await fetch(`http://localhost:5000/boardingInput/${boarding_input}/${flight_ID}/${ticket_number}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -57,11 +53,19 @@ async function selectInput() {
 
 function searchfunc(){
     try {
-        let flight_input = document.getElementById("boardingID").value;
-        let dep_arpt_input = document.getElementById("flightID").value;
-        let arriv_arpt_input = document.getElementById("ticketNumber").value;
-        selectInput();
+        let boarding_input = document.getElementById("boardingID").value;
+        let flight_ID = document.getElementById("flightID").value;
+        let ticket_number = document.getElementById("ticketNumber").value;
+        let inputCheck = [boarding_input, flight_ID, ticket_number]
+        for (let i=0; i < inputCheck.length; i++) {
+            if (inputCheck[i] === ""){
+                inputCheck[i] = "-1234"
+            }
+        } // this will allow function in main to decide what params to query off of
+        selectBoarding(inputCheck[0],inputCheck[1],inputCheck[2]);
     } catch (err) {
         console.log(err.message);
     }
 }
+
+selectDemos();

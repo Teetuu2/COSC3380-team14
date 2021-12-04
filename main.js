@@ -75,15 +75,17 @@ app.get('/boarding', async(req, res)=>{
     }
 });
 
-app.get('/boardingInput', async(req, res)=>{
+app.get('/boardingInput/:boarding_input/:flight_ID/:ticket_number', async(req, res)=>{
     try{
-        console.log("boarding connected");
+        const qtype = 'query';
+        const {boarding_input,flight_ID,ticket_number} = req.params;
+        console.log("boardingInput connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM boarding WHERE boarding_id='100';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE boarding_id='${boarding_input}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
-        console.log("boarding disconnected")
+        console.log("boardingInput disconnected")
     } catch(err){
         console.log(err.message);
     }

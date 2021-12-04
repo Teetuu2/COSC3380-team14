@@ -54,11 +54,11 @@ async function selectFlightID(flight, dept, arr) {
 
 function searchfunc(){
     try {
-        var flight_input = document.getElementById("flightid").value;
-        var dep_arpt_input = document.getElementById("departureairport").value;
-        var arriv_arpt_input = document.getElementById("arrivalairport").value;
-        var inputCheck = [flight_input, dep_arpt_input,arriv_arpt_input]
-        for (let i=0; i< inputCheck.length; i++) {
+        let flight_input = document.getElementById("flightid").value;
+        let dep_arpt_input = document.getElementById("departureairport").value;
+        let arriv_arpt_input = document.getElementById("arrivalairport").value;
+        let inputCheck = [flight_input, dep_arpt_input, arriv_arpt_input]
+        for (let i=0; i < inputCheck.length; i++) {
             if (inputCheck[i] === ""){
                 inputCheck[i] = "-1234"
             }
