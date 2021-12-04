@@ -6,7 +6,7 @@ const setDemos = (data) => {
 
 // function to display demos
 const displayDemos = () => {
-    const demoTable = document.querySelector('#flight-table');
+    let demoTable = document.querySelector('#flight-table');
 
     let tableHTML = "";
     demos.map(flight =>{
@@ -27,8 +27,8 @@ const displayDemos = () => {
 
 async function selectDemos() {
     try {
-        const response = await fetch("http://localhost:5000/flights")
-        const jsonData = await response.json();
+        let response = await fetch("http://localhost:5000/flights")
+        let jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -39,8 +39,8 @@ async function selectDemos() {
 
 async function selectFlightID() {
     try {
-        const response = await fetch("http://localhost:5000/flightID")
-        const jsonData = await response.json();
+        let response = await fetch("http://localhost:5000/flightID")
+        let jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -51,9 +51,9 @@ async function selectFlightID() {
 
 function searchfunc(){
     try {
-        var flight_input = document.getElementById("flightid").value;
-        var dep_arpt_input = document.getElementById("departureairport").value;
-        var arriv_arpt_input = document.getElementById("arrivalairport").value;
+        let flight_input = document.getElementById("flightid").value;
+        let dep_arpt_input = document.getElementById("departureairport").value;
+        let arriv_arpt_input = document.getElementById("arrivalairport").value;
         selectFlightID();
     } catch (err) {
         console.log(err.message);

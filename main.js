@@ -14,9 +14,9 @@ pool.connect()
 app.get('/flights', async(req, res)=>{
     try{
         console.log("flights connected");
-        pool.query(`BEGIN TRANSACTION;`);
+        await pool.query(`BEGIN TRANSACTION;`);
         let allDemos = await pool.query(`SELECT * FROM flight;`);
-        pool.query(`COMMIT;`);
+        await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("flights disconnected")
@@ -28,10 +28,9 @@ app.get('/flights', async(req, res)=>{
 app.get('/flightID', async(req, res)=>{
     try{
         console.log("flightsID connected");
-        pool.query(`BEGIN TRANSACTION;`);
-        let flight_inputs = 'US930';
-        let allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${flight_inputs}';`);
-        pool.query(`COMMIT;`);
+        await pool.query(`BEGIN TRANSACTION;`);
+        let allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='US930';`);
+        await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("flightsID disconnected")
@@ -43,9 +42,23 @@ app.get('/flightID', async(req, res)=>{
 app.get('/boarding', async(req, res)=>{
     try{
         console.log("boarding connected");
-        pool.query(`BEGIN TRANSACTION;`);
+        await pool.query(`BEGIN TRANSACTION;`);
         const allDemos = await pool.query(`SELECT * FROM boarding`);
-        pool.query(`COMMIT;`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("boarding disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/boardingInput', async(req, res)=>{
+    try{
+        console.log("boarding connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await pool.query(`SELECT * FROM boarding WHERE boarding_id='100';`);
+        await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("boarding disconnected")
@@ -57,9 +70,9 @@ app.get('/boarding', async(req, res)=>{
 app.get('/Airplane', async(req, res)=>{
     try{
         console.log("boarding connected");
-        pool.query(`BEGIN TRANSACTION;`);
+        await pool.query(`BEGIN TRANSACTION;`);
         const allDemos = await pool.query(`SELECT * FROM boarding`);
-        pool.query(`COMMIT;`);
+        await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("boarding disconnected")

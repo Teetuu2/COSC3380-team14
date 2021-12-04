@@ -42,3 +42,26 @@ async function selectDemos() {
         console.log(err.message);
     }
 }
+
+async function selectInput() {
+    try {
+        let response = await fetch("http://localhost:5000/boardingInput")
+        let jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchfunc(){
+    try {
+        let flight_input = document.getElementById("boardingID").value;
+        let dep_arpt_input = document.getElementById("flightID").value;
+        let arriv_arpt_input = document.getElementById("ticketNumber").value;
+        selectInput();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
