@@ -57,7 +57,13 @@ function searchfunc(){
         var flight_input = document.getElementById("flightid").value;
         var dep_arpt_input = document.getElementById("departureairport").value;
         var arriv_arpt_input = document.getElementById("arrivalairport").value;
-        selectFlightID(flight_input, dep_arpt_input,arriv_arpt_input);
+        var inputCheck = [flight_input, dep_arpt_input,arriv_arpt_input]
+        for (let i=0; i< inputCheck.length; i++) {
+            if (inputCheck[i] === ""){
+                inputCheck[i] = "-1234"
+            }
+        }
+        selectFlightID(inputCheck[0],inputCheck[1],inputCheck[2]);
     } catch (err) {
         console.log(err.message);
     }

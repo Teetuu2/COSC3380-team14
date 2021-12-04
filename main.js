@@ -3,6 +3,8 @@ const path = require('path')
 const app = express();
 const cors = require('cors');
 const pool = require('./creds');
+var fs = require("fs");
+const { query } = require('express');
 
 app.use(express.static('public'));
 app.use(cors());
@@ -10,12 +12,28 @@ app.use(express.json());
 
 pool.connect()
 
+async function dbQuery(type, query){
+    try{
+        let res = await pool.query(query);
+        if (type==='query'){
+            fs.appendFileSync('query.sql', query + "\n\n")
+        }
+        else{
+            fs.appendFileSync('transaction.sql', query + "\n\n")
+        }
+        return res;
+    } catch(err){
+        console.log(err.message);
+    }
+}
+
 //get all
 app.get('/flights', async(req, res)=>{
     try{
+        const qtype = 'query';
         console.log("flights connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        let allDemos = await pool.query(`SELECT * FROM flight;`);
+        let allDemos = await dbQuery(qtype, `SELECT * FROM flight;`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -25,16 +43,17 @@ app.get('/flights', async(req, res)=>{
     }
 });
 
-app.get('/flightID/:flight/:dept/:arr', async (req, res)=>{
+app.get('/flightID/:flight/:dept/:arr', async(req, res)=>{
     try{
-        const {flight, dept, arr} = req.params;
-        console.log("Hey")
+        const qtype = 'query';
+        const {flight,dept,arr} = req.params;
         console.log("flightsID connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${flight}';`);
+        //switch can go here for depending on user input
+        const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE flight_id='${flight}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
-        res.json(allDemos);
+        res.json(allDemos.rows);
         console.log("flightsID disconnected")
     } catch(err){
         console.log(err.message);
