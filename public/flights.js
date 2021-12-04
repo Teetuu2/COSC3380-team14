@@ -37,10 +37,13 @@ async function selectDemos() {
     }
 }
 
-async function selectFlightID() {
+async function selectFlightID(flight, dept, arr) {
     try {
-        let response = await fetch("http://localhost:5000/flightID")
-        let jsonData = await response.json();
+        const response = await fetch(`http://localhost:5000/flightID/${flight}/${dept}/${arr}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -51,10 +54,10 @@ async function selectFlightID() {
 
 function searchfunc(){
     try {
-        let flight_input = document.getElementById("flightid").value;
-        let dep_arpt_input = document.getElementById("departureairport").value;
-        let arriv_arpt_input = document.getElementById("arrivalairport").value;
-        selectFlightID();
+        var flight_input = document.getElementById("flightid").value;
+        var dep_arpt_input = document.getElementById("departureairport").value;
+        var arriv_arpt_input = document.getElementById("arrivalairport").value;
+        selectFlightID(flight_input, dep_arpt_input,arriv_arpt_input);
     } catch (err) {
         console.log(err.message);
     }
