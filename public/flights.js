@@ -25,14 +25,10 @@ const displayDemos = () => {
     demoTable.innerHTML = tableHTML
 }
 
-selectDemos();
-console.log("Arrived at script")
-
 async function selectDemos() {
     try {
         const response = await fetch("http://localhost:5000/flights")
         const jsonData = await response.json();
-        console.log("script.js")
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -45,7 +41,6 @@ async function selectFlightID() {
     try {
         const response = await fetch("http://localhost:5000/flightID")
         const jsonData = await response.json();
-        console.log("script.js")
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -59,9 +54,10 @@ function searchfunc(){
         var flight_input = document.getElementById("flightid").value;
         var dep_arpt_input = document.getElementById("departureairport").value;
         var arriv_arpt_input = document.getElementById("arrivalairport").value;
-        alert("test");
-        selectFlightID()
+        selectFlightID();
     } catch (err) {
         console.log(err.message);
     }
 }
+
+selectDemos();

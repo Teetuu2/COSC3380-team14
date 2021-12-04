@@ -3,7 +3,6 @@ const path = require('path')
 const app = express();
 const cors = require('cors');
 const pool = require('./creds');
-var {flight_inputs} = require('./public/flights');
 
 app.use(express.static('public'));
 app.use(cors());
@@ -16,7 +15,7 @@ app.get('/flights', async(req, res)=>{
     try{
         console.log("flights connected");
         pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM flight;`);
+        let allDemos = await pool.query(`SELECT * FROM flight;`);
         pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -30,11 +29,12 @@ app.get('/flightID', async(req, res)=>{
     try{
         console.log("flightsID connected");
         pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${flight_inputs}';`);
+        let flight_inputs = 'US930';
+        let allDemos = await pool.query(`SELECT * FROM flight WHERE flight_id='${flight_inputs}';`);
         pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
-        console.log("flights disconnected")
+        console.log("flightsID disconnected")
     } catch(err){
         console.log(err.message);
     }
