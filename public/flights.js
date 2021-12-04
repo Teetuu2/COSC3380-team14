@@ -19,7 +19,6 @@ const displayDemos = () => {
         <th>${flight.arrival_time}</th>
         <th>${flight.departure_airport}</th>
         <th>${flight.arrival_airport}</th>
-        <th>${flight.edit}</th>
         </tr>`;
     })
     demoTable.innerHTML = tableHTML
@@ -37,9 +36,9 @@ async function selectDemos() {
     }
 }
 
-async function selectFlightID(flight, dept, arr) {
+async function selectFlightID(flight) {
     try {
-        const response = await fetch(`http://localhost:5000/flightID/${flight}/${dept}/${arr}`, {
+        const response = await fetch(`http://localhost:5000/flightID/${flight}`, {
             method: "GET",
             headers: {"Content-Type": "application/json"}
         })
@@ -52,18 +51,58 @@ async function selectFlightID(flight, dept, arr) {
     }
 }
 
-function searchfunc(){
+function searchFlightID(){
     try {
         let flight_input = document.getElementById("flightid").value;
-        let dep_arpt_input = document.getElementById("departureairport").value;
+        selectFlightID(flight_input);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectDeparture(departure) {
+    try {
+        const response = await fetch(`http://localhost:5000/departure/${departure}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchDeparture(){
+    try {
+        let departureInput = document.getElementById("departureairport").value;
+        selectDeparture(departureInput);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectArrival(arrival) {
+    try {
+        const response = await fetch(`http://localhost:5000/arrival/${arrival}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchArrival(){
+    try {
         let arriv_arpt_input = document.getElementById("arrivalairport").value;
-        let inputCheck = [flight_input, dep_arpt_input, arriv_arpt_input]
-        for (let i=0; i < inputCheck.length; i++) {
-            if (inputCheck[i] === ""){
-                inputCheck[i] = "-1234"
-            }
-        } // this will allow function in main to decide what params to query off of
-        selectFlightID(inputCheck[0],inputCheck[1],inputCheck[2]);
+        selectArrival(arriv_arpt_input);
     } catch (err) {
         console.log(err.message);
     }

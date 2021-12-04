@@ -36,9 +36,9 @@ async function selectDemos() {
     }
 }
 
-async function selectBoarding(boarding_input, flight_ID, ticket_number) {
+async function selectBoarding(boarding_input) {
     try {
-        const response = await fetch(`http://localhost:5000/boardingInput/${boarding_input}/${flight_ID}/${ticket_number}`, {
+        const response = await fetch(`http://localhost:5000/boardingInput/${boarding_input}`, {
             method: "GET",
             headers: {"Content-Type": "application/json"}
         })
@@ -51,18 +51,58 @@ async function selectBoarding(boarding_input, flight_ID, ticket_number) {
     }
 }
 
-function searchfunc(){
+function searchBoarding(){
     try {
         let boarding_input = document.getElementById("boardingID").value;
-        let flight_ID = document.getElementById("flightID").value;
-        let ticket_number = document.getElementById("ticketNumber").value;
-        let inputCheck = [boarding_input, flight_ID, ticket_number]
-        for (let i=0; i < inputCheck.length; i++) {
-            if (inputCheck[i] === ""){
-                inputCheck[i] = "-1234"
-            }
-        } // this will allow function in main to decide what params to query off of
-        selectBoarding(inputCheck[0],inputCheck[1],inputCheck[2]);
+        selectBoarding(boarding_input);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectFlight(flight) {
+    try {
+        const response = await fetch(`http://localhost:5000/boardingFlight/${flight}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchFlight(){
+    try {
+        let flight_input = document.getElementById("flightID").value;
+        selectFlight(flight_input);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectTicket(ticket) {
+    try {
+        const response = await fetch(`http://localhost:5000/boardingTicket/${ticket}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchTicket(){
+    try {
+        let ticket = document.getElementById("ticketNumber").value;
+        selectTicket(ticket);
     } catch (err) {
         console.log(err.message);
     }

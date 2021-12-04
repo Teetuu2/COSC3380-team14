@@ -43,19 +43,49 @@ app.get('/flights', async(req, res)=>{
     }
 });
 
-app.get('/flightID/:flight/:dept/:arr', async(req, res)=>{
+app.get('/flightID/:flight', async(req, res)=>{
     try{
         const qtype = 'query';
-        const {flight,dept,arr} = req.params;
+        const {flight} = req.params;
         console.log("flightsID connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        //switch can go here for depending on user input
-        //search for things that are only not "-1234" (see flights.js)
         const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE flight_id='${flight}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
         console.log("flightsID disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/departure/:departure', async(req, res)=>{
+    try{
+        const qtype = 'query';
+        const {departure} = req.params;
+        console.log("departure connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE departure_airport='${departure}';`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("departure disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/arrival/:arrival', async(req, res)=>{
+    try{
+        const qtype = 'query';
+        const {arrival} = req.params;
+        console.log("arrival connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE arrival_airport='${arrival}';`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("arrival disconnected")
     } catch(err){
         console.log(err.message);
     }
@@ -75,10 +105,10 @@ app.get('/boarding', async(req, res)=>{
     }
 });
 
-app.get('/boardingInput/:boarding_input/:flight_ID/:ticket_number', async(req, res)=>{
+app.get('/boardingInput/:boarding_input', async(req, res)=>{
     try{
         const qtype = 'query';
-        const {boarding_input,flight_ID,ticket_number} = req.params;
+        const {boarding_input} = req.params;
         console.log("boardingInput connected");
         await pool.query(`BEGIN TRANSACTION;`);
         const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE boarding_id='${boarding_input}';`);
@@ -91,15 +121,79 @@ app.get('/boardingInput/:boarding_input/:flight_ID/:ticket_number', async(req, r
     }
 });
 
-app.get('/Airplane', async(req, res)=>{
+app.get('/boardingFlight/:flight', async(req, res)=>{
     try{
-        console.log("boarding connected");
+        const qtype = 'query';
+        const {flight} = req.params;
+        console.log("boardingFlight connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM boarding`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE flight_id='${flight}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
-        console.log("boarding disconnected")
+        console.log("boardingFlight disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/boardingTicket/:ticket', async(req, res)=>{
+    try{
+        const qtype = 'query';
+        const {ticket} = req.params;
+        console.log("boardingTicket connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE ticket_no='${ticket}';`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("boardingTicket disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/Airplane', async(req, res)=>{
+    try{
+        console.log("Airplane connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await pool.query(`SELECT * FROM airplane`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("Airplane disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/planeCode/:planeCode', async(req, res)=>{
+    try{
+        const qtype = 'query';
+        const {planeCode} = req.params;
+        console.log("planeCode connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM airplane WHERE aircraft_code='${planeCode}';`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("planeCode disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
+app.get('/model/:modelType', async(req, res)=>{
+    try{
+        const qtype = 'query';
+        const {modelType} = req.params;
+        console.log("model connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM airplane WHERE model='${modelType}';`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("model disconnected")
     } catch(err){
         console.log(err.message);
     }
