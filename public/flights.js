@@ -128,5 +128,23 @@ function editbutt() {
     return ret;
 }
 
+async function UpdateFlight() {
+    try {
+        //read correct input from modal into json obj "body"
+        let updated = fetch("http://localhost:5000/update", {
+            method: 'PUT',
+            body: data
+        })
+        let updateResponse = await updated.json();
+        let response = await fetch("http://localhost:5000/flights")
+        let jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
 
 selectDemos();

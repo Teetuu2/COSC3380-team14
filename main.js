@@ -199,6 +199,24 @@ app.get('/model/:modelType', async(req, res)=>{
     }
 });
 
+//:flightID/:deptDate/:deptTime/:arrDate/:arrTime/:deptApt/:arrApt
+app.put('/update', async(req, res)=>{
+    try{
+        const qtype = 'transaction';
+        const {flightID,deptDate,deptTime,arrDate,arrTime,deptApt,arrApt} = req.body.params;
+        console.log("update connected");
+        await pool.query(`BEGIN TRANSACTION;`);
+        const allDemos = await dbQuery(qtype, `UPDATE flight SET departure_date = '${deptDate}', departure_time = '${deptTime}', departure_airport = '${deptApt}',arrival_date = '${arrDate}', arrival_time = '${arrTime}', departure_airport = '${arrApt}'
+                                                WHERE flight_id = '${flightID}'`);
+        await pool.query(`COMMIT;`);
+        console.table(allDemos.rows)
+        res.json(allDemos.rows);
+        console.log("update disconnected")
+    } catch(err){
+        console.log(err.message);
+    }
+});
+
 // set up the server listening at port 5000 (the port number can be changed)
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{

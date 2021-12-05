@@ -46,7 +46,7 @@
                 Arrival Airport: <input type="text" id="arrivalairport">
                 <button onclick="searchArrival()" id="butt3">Search</button>
                 <br>
-                <button onclick="openModal()" id="butt4">Search</button>
+                <button onclick="openModal()" id="butt4">Edit</button>
                 <br>
 
                 <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
@@ -58,7 +58,16 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-
+                                <label><b>Flight ID</b></label>
+                                <input placeholder="Flight ID" required>
+                                <label><b>Departure</b></label>
+                                <input placeholder="Date">
+                                <input placeholder="Time">
+                                <input placeholder="Airport">
+                                <label><b>Arrival</b></label>
+                                <input placeholder="Date">
+                                <input placeholder="Time">
+                                <input placeholder="Airport">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="closebtn" data-dismiss="modal">CANCEL</button>
