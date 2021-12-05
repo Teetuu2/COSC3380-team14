@@ -46,6 +46,27 @@
                 Arrival Airport: <input type="text" id="arrivalairport">
                 <button onclick="searchArrival()" id="butt3">Search</button>
                 <br>
+                <button onclick="openModal()" id="butt4">Search</button>
+                <br>
+
+                <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
+                    <div class="modalDialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="modalbtn" data-dismiss="modal" aria-label="modalbtn">
+                                    <span class="close">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="closebtn" data-dismiss="modal">CANCEL</button>
+                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <br>
@@ -66,22 +87,6 @@
                     <tbody id="flight-table">
                     </tbody>
                 </table>
-            </div>
-            <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
-                <div class="modalDialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="modalbtn" data-dismiss="modal" aria-label="modalbtn">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="closebtn" data-dismiss="modal">CLOSE</button>
-                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -110,12 +115,68 @@
         //save button
         const savebtn = document.getElementById('savebtn');
 
+        var span = document.getElementsByClassName('close')[0];
+
+
         modal.addEventListener('click', openModal);
+        modal.addEventListener('click', closeModal);
 
         function openModal(){
             modal.style.display = 'block';
         }
+        function closeModal(){
+            modal.style.display = "none";
+        }
 
+    </script>
+
+    <script>
+        var tblrow = null;
+
+        function Display(){
+            tblrow = $(ctl).parents("tr");
+            var cols = _row.children("td");
+            $("#flight_id").val($(cols[1]).text());
+            $("#departure_date").val($(cols[2]).text());
+            $("#departure_time").val($(cols[3]).text());
+            $("#arrival_date").val($(cols[4]).text());
+            $("#arrival_time").val($(cols[5]).text());
+            $("#departure_airport").val($(cols[6]).text());
+            $("#arrival_airport").val($(cols[7]).text());
+    
+            // Change Update Button Text
+            $("#updateButton").text("Update");
+        }
+
+        function Update(){
+            if ($("#savebtn").text() == "Update") {
+                UpdateInTable();
+            }
+            else {
+                AddToTable();
+            }
+            
+            // Clear form fields
+            formClear();
+            
+            // Focus to product name field
+            $("#flight_id").focus();
+
+        }
+
+        function productUpdateInTable() {
+            // Add changed product to table
+            $(_row).after(BuildTableRow());
+            
+            // Remove old product row
+            $(_row).remove();
+            
+            // Clear form fields
+            formClear();
+            
+            // Change Update Button Text
+            $("#updateButton").text("Add");
+        }
     </script>
 
 <script src="./flights.js"></script>
