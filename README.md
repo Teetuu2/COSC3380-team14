@@ -4,6 +4,7 @@ Group project for COSC3380 application target 3 at the University of Houston
 Members:
 Angelita Krepel 1647989
 Scott Tran 1853025
+Valen Johnson 1617464
 
 To run our website/program please run 'node main.js' in the terminal then go to localhost:5000 to view our website
 
