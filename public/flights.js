@@ -108,4 +108,25 @@ function searchArrival(){
     }
 }
 
+function editbutt() {
+    var ret = "<tr>" +
+        "<td>" +
+        "</td>" +
+        "<td>" + $("#flight_id").val() + "</td>" +
+        "<td>" + $("#departure_date").val() + "</td>" +
+        "<td>" + $("#departure_time").val() + "</td>" +
+        "<td>" + $("#arrival_date").val() + "</td>" +
+        "<td>" + $("#arrival_time").val() + "</td>" +
+        "<td>" + $("#departure_airport").val() + "</td>" +
+        "<td>" + $("#arrival_airport").val() + "</td>" +
+        "<td>" +
+        "<button type='button' onclick='Display(this);' class='butt'>" +
+        "<span class='edit' />" +
+        "</button>" +
+        "</tr>"
+
+    return ret;
+}
+
+
 selectDemos();
