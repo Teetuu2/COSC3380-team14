@@ -6,7 +6,7 @@ const setDemos = (data) => {
 
 // function to display demos
 const displayDemos = () => {
-    const demoTable = document.querySelector('#flight-table');
+    let demoTable = document.querySelector('#flight-table');
 
     let tableHTML = "";
     demos.map(flight =>{
@@ -19,20 +19,15 @@ const displayDemos = () => {
         <th>${flight.arrival_time}</th>
         <th>${flight.departure_airport}</th>
         <th>${flight.arrival_airport}</th>
-        <th>${flight.edit}</th>
         </tr>`;
     })
     demoTable.innerHTML = tableHTML
 }
 
-selectDemos();
-console.log("Arrived at script")
-
 async function selectDemos() {
     try {
-        const response = await fetch("http://localhost:5000/flights")
-        const jsonData = await response.json();
-        console.log("script.js")
+        let response = await fetch("http://localhost:5000/flights")
+        let jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -41,11 +36,13 @@ async function selectDemos() {
     }
 }
 
-async function selectFlightID() {
+async function selectFlightID(flight) {
     try {
-        const response = await fetch("http://localhost:5000/flightID")
+        const response = await fetch(`http://localhost:5000/flightID/${flight}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
         const jsonData = await response.json();
-        console.log("script.js")
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -54,14 +51,61 @@ async function selectFlightID() {
     }
 }
 
-function searchfunc(){
+function searchFlightID(){
     try {
-        var flight_input = document.getElementById("flightid").value;
-        var dep_arpt_input = document.getElementById("departureairport").value;
-        var arriv_arpt_input = document.getElementById("arrivalairport").value;
-        alert("test");
-        selectFlightID()
+        let flight_input = document.getElementById("flightid").value;
+        selectFlightID(flight_input);
     } catch (err) {
         console.log(err.message);
     }
 }
+
+async function selectDeparture(departure) {
+    try {
+        const response = await fetch(`http://localhost:5000/departure/${departure}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchDeparture(){
+    try {
+        let departureInput = document.getElementById("departureairport").value;
+        selectDeparture(departureInput);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectArrival(arrival) {
+    try {
+        const response = await fetch(`http://localhost:5000/arrival/${arrival}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchArrival(){
+    try {
+        let arriv_arpt_input = document.getElementById("arrivalairport").value;
+        selectArrival(arriv_arpt_input);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+selectDemos();

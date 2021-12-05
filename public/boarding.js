@@ -24,17 +24,10 @@ const displayDemos = () => {
     demoTable.innerHTML = tableHTML
 }
 
-selectDemos();
-console.log("Arrived at script")
-
 async function selectDemos() {
-    // use try... catch... to catch error
     try {
         const response = await fetch("http://localhost:5000/boarding")
-        // connect to heroku, remove localhost:port
-        // const response = await fetch("/demos")
         const jsonData = await response.json();
-        console.log("script.js")
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
@@ -42,3 +35,77 @@ async function selectDemos() {
         console.log(err.message);
     }
 }
+
+async function selectBoarding(boarding_input) {
+    try {
+        const response = await fetch(`http://localhost:5000/boardingInput/${boarding_input}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchBoarding(){
+    try {
+        let boarding_input = document.getElementById("boardingID").value;
+        selectBoarding(boarding_input);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectFlight(flight) {
+    try {
+        const response = await fetch(`http://localhost:5000/boardingFlight/${flight}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchFlight(){
+    try {
+        let flight_input = document.getElementById("flightID").value;
+        selectFlight(flight_input);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+async function selectTicket(ticket) {
+    try {
+        const response = await fetch(`http://localhost:5000/boardingTicket/${ticket}`, {
+            method: "GET",
+            headers: {"Content-Type": "application/json"}
+        })
+        const jsonData = await response.json();
+        console.table(jsonData)
+        setDemos(jsonData);
+        displayDemos();
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+function searchTicket(){
+    try {
+        let ticket = document.getElementById("ticketNumber").value;
+        selectTicket(ticket);
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+selectDemos();
