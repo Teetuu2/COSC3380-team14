@@ -200,16 +200,24 @@ app.get('/model/:modelType', async(req, res)=>{
 });
 
 //:flightID/:deptDate/:deptTime/:arrDate/:arrTime/:deptApt/:arrApt
-app.put('/update', async(req, res)=>{
+app.post('/update', async(req, res)=>{
     try{
         const qtype = 'transaction';
-        const {flightID,deptDate,deptTime,arrDate,arrTime,deptApt,arrApt} = req.body.params;
+        const data = {
+            flightID: req.body.id,
+            deptDate: req.body.dDate,
+            deptTime: req.body.dTime,
+            arrDate: req.body.aDate,
+            arrTime: req.body.aTime,
+            deptApt: req.body.dArpt,
+            arrApt: req.body.aArpt
+        } 
         console.log("update connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `UPDATE flight SET departure_date = '${deptDate}', departure_time = '${deptTime}', departure_airport = '${deptApt}',arrival_date = '${arrDate}', arrival_time = '${arrTime}', departure_airport = '${arrApt}'
-                                                WHERE flight_id = '${flightID}'`);
+        const allDemos = await dbQuery(qtype, `INSERT INTO flight (flight_id,departure_date,departure_time,arrival_date,arrival_time,departure_airport,arrival_airport)
+                                               VALUES ('${data.flightID}', '${data.deptDate}', '${data.deptTime}', '${data.arrDate}', '${data.arrTime}', '${data.deptApt}', '${data.arrApt}') RETURNING *`);
         await pool.query(`COMMIT;`);
-        console.table(allDemos.rows)
+        console.table(allDemos.rows);
         res.json(allDemos.rows);
         console.log("update disconnected")
     } catch(err){
