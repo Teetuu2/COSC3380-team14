@@ -152,3 +152,7 @@ SELECT * FROM boarding WHERE ticket_no='4';
 
 SELECT * FROM flight;
 
+SELECT * FROM dbs055.flight;
+
+SELECT * FROM dbs055.flight WHERE flight_id='US101';
+
