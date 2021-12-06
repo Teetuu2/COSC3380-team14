@@ -13,6 +13,11 @@ We are a group of 2, originally 4. Our third member left a few days before the d
 Note: 
 Our demo video was recorded and website was tested on the Elephant.sql database. We attempted to transfer the data over to the main server on Angelitas account, but we ran into complications.
 
+replace the "const pool" object the code in the creds.js with the following to test:
+var pg = require('pg');
+const conString = "postgres://onkwqgmw:a6PHKnm_J7dhj58jKcXvyc06cKR3seMF@kashin.db.elephantsql.com/onkwqgmw"
+const pool = new pg.Client(conString);
+
 Demo Video:
 https://youtu.be/82Jg_5LO2Qs
 

@@ -33,7 +33,7 @@ app.get('/flights', async(req, res)=>{
         const qtype = 'query';
         console.log("flights connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        let allDemos = await dbQuery(qtype, `SELECT * FROM flight;`);
+        let allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.flight;`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -49,7 +49,7 @@ app.get('/flightID/:flight', async(req, res)=>{
         const {flight} = req.params;
         console.log("flightsID connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE flight_id='${flight}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.flight WHERE flight_id='${flight}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -65,7 +65,7 @@ app.get('/departure/:departure', async(req, res)=>{
         const {departure} = req.params;
         console.log("departure connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE departure_airport='${departure}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.flight WHERE departure_airport='${departure}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -81,7 +81,7 @@ app.get('/arrival/:arrival', async(req, res)=>{
         const {arrival} = req.params;
         console.log("arrival connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM flight WHERE arrival_airport='${arrival}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.flight WHERE arrival_airport='${arrival}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -95,7 +95,7 @@ app.get('/boarding', async(req, res)=>{
     try{
         console.log("boarding connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM boarding`);
+        const allDemos = await pool.query(`SELECT * FROM dbs055.boarding`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -111,7 +111,7 @@ app.get('/boardingInput/:boarding_input', async(req, res)=>{
         const {boarding_input} = req.params;
         console.log("boardingInput connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE boarding_id='${boarding_input}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.boarding WHERE boarding_id='${boarding_input}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -127,7 +127,7 @@ app.get('/boardingFlight/:flight', async(req, res)=>{
         const {flight} = req.params;
         console.log("boardingFlight connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE flight_id='${flight}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.boarding WHERE flight_id='${flight}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -143,7 +143,7 @@ app.get('/boardingTicket/:ticket', async(req, res)=>{
         const {ticket} = req.params;
         console.log("boardingTicket connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM boarding WHERE ticket_no='${ticket}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.boarding WHERE ticket_no='${ticket}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -157,7 +157,7 @@ app.get('/Airplane', async(req, res)=>{
     try{
         console.log("Airplane connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await pool.query(`SELECT * FROM airplane`);
+        const allDemos = await pool.query(`SELECT * FROM dbs055.airplane`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -173,7 +173,7 @@ app.get('/planeCode/:planeCode', async(req, res)=>{
         const {planeCode} = req.params;
         console.log("planeCode connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM airplane WHERE aircraft_code='${planeCode}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.airplane WHERE aircraft_code='${planeCode}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -189,7 +189,7 @@ app.get('/model/:modelType', async(req, res)=>{
         const {modelType} = req.params;
         console.log("model connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `SELECT * FROM airplane WHERE model='${modelType}';`);
+        const allDemos = await dbQuery(qtype, `SELECT * FROM dbs055.airplane WHERE model='${modelType}';`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows)
         res.json(allDemos.rows);
@@ -214,7 +214,7 @@ app.post('/update', async(req, res)=>{
         } 
         console.log("update connected");
         await pool.query(`BEGIN TRANSACTION;`);
-        const allDemos = await dbQuery(qtype, `INSERT INTO flight (flight_id,departure_date,departure_time,arrival_date,arrival_time,departure_airport,arrival_airport)
+        const allDemos = await dbQuery(qtype, `INSERT INTO dbs055.flight (flight_id,departure_date,departure_time,arrival_date,arrival_time,departure_airport,arrival_airport)
                                                VALUES ('${data.flightID}', '${data.deptDate}', '${data.deptTime}', '${data.arrDate}', '${data.arrTime}', '${data.deptApt}', '${data.arrApt}') RETURNING *`);
         await pool.query(`COMMIT;`);
         console.table(allDemos.rows);
