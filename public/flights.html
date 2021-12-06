@@ -59,22 +59,22 @@
                             </div>
                             <div class="modal-body">
                                 <label><b>Flight ID</b></label>
-                                <input id="flt_id" placeholder="Flight ID" required>
+                                <input id="flt_id" placeholder="Flight ID" type="text" maxlength="5" required>
                                 <br>
                                 <label><b>Departure</b></label>
-                                <input id="dep_dte" placeholder="Date">
-                                <input id="dep_tme" placeholder="Time">
-                                <input id="dep_arpt" placeholder="Airport">
+                                <input id="dep_dte" placeholder="Date" type="date" required>
+                                <input id="dep_tme" placeholder="Time" type="time" step="1" required>
+                                <input id="dep_arpt" placeholder="Airport" type="text" maxlength="3" required>
                                 <br>
                                 <label><b>Arrival</b></label>
-                                <input id="arv_dte" placeholder="Date">
-                                <input id="arv_tme" placeholder="Time">
-                                <input id="arv_arpt" placeholder="Airport">
+                                <input id="arv_dte" placeholder="Date" type="date" required>
+                                <input id="arv_tme" placeholder="Time" type="time" step="1" required>
+                                <input id="arv_arpt" placeholder="Airport" type="text" maxlength="3" required>
                                 <br>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="closebtn" data-dismiss="modal" onclick="closeModal()">CANCEL</button>
-                                <button type="button" class="savebtn" id="saveedit" onclick="display()">Save Changes</button>
+                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
                             </div>
                         </div>
                     </div>
@@ -123,13 +123,10 @@
         const modalbtn = document.getElementById('modalbtn');
         //close button
         const closebtn = document.getElementsByClassName('closebtn')[0];
-        
-
-
+    
         modalbtn.addEventListener('click', closeModal);
         closebtn.addEventListener('click', closeModal);
         
-
         function openModal(){
             modal.style.display = 'block';
         }
@@ -147,7 +144,6 @@
 
         savebtn.addEventListener('click', display);
 
-
         function display(){
 
             const flight_id = document.getElementById('flt_id').value;
@@ -158,7 +154,18 @@
             const ariv_time = document.getElementById('arv_tme').value;
             const ariv_arpt = document.getElementById('arv_arpt').value;
             
+            const data = {
+                id: flight_id,
+                dDate: dept_date,
+                dTime: dept_time,
+                dArpt: dept_arpt,
+                aDate: ariv_date,
+                aTime: ariv_time,
+                aArpt: ariv_arpt
+            }
+
             alert("hello " + flight_id);
+            addFlight(data);
         }
 
     </script>

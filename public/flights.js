@@ -26,7 +26,7 @@ const displayDemos = () => {
 
 async function selectDemos() {
     try {
-        let response = await fetch("http://localhost:5000/flights")
+        const response = await fetch("http://localhost:5000/flights")
         let jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
@@ -128,16 +128,20 @@ function editbutt() {
     return ret;
 }
 
-async function UpdateFlight() {
+async function addFlight(data) {
     try {
         //read correct input from modal into json obj "body"
-        let updated = fetch("http://localhost:5000/update", {
-            method: 'PUT',
-            body: data
+        const response = fetch("http://localhost:5000/update", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(data)
         })
-        let updateResponse = await updated.json();
-        let response = await fetch("http://localhost:5000/flights")
-        let jsonData = await response.json();
+        const jsonData = await response.json();
+        // let response = await fetch("http://localhost:5000/flights")
+        // let jsonData = await response.json();
         console.table(jsonData)
         setDemos(jsonData);
         displayDemos();
