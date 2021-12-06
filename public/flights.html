@@ -46,7 +46,7 @@
                 Arrival Airport: <input type="text" id="arrivalairport">
                 <button onclick="searchArrival()" id="butt3">Search</button>
                 <br>
-                <button onclick="openModal()" id="butt4">Edit</button>
+                <button onclick="openModal()" id="butt4">Add Flight</button>
                 <br>
 
                 <div class="modal" id="modal" aria-labelledby="editModal" aria-hidden="true">
@@ -59,22 +59,22 @@
                             </div>
                             <div class="modal-body">
                                 <label><b>Flight ID</b></label>
-                                <input placeholder="Flight ID" required>
+                                <input id="flt_id" placeholder="Flight ID" required>
                                 <br>
                                 <label><b>Departure</b></label>
-                                <input placeholder="Date">
-                                <input placeholder="Time">
-                                <input placeholder="Airport">
+                                <input id="dep_dte" placeholder="Date">
+                                <input id="dep_tme" placeholder="Time">
+                                <input id="dep_arpt" placeholder="Airport">
                                 <br>
                                 <label><b>Arrival</b></label>
-                                <input placeholder="Date">
-                                <input placeholder="Time">
-                                <input placeholder="Airport">
+                                <input id="arv_dte" placeholder="Date">
+                                <input id="arv_tme" placeholder="Time">
+                                <input id="arv_arpt" placeholder="Airport">
                                 <br>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="closebtn" data-dismiss="modal" onclick="closeModal()">CANCEL</button>
-                                <button type="button" class="savebtn" id="saveedit">Save Changes</button>
+                                <button type="button" class="savebtn" id="saveedit" onclick="display()">Save Changes</button>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,6 @@
                             <th id="landingtime">Arrival Time</th>
                             <th id="departureairport">Departure Airport</th>
                             <th id="arrivaltime">Arrival Airport</th>
-                            <th id="edit">Edit</th>
                         </tr>
                     </thead>
                     <tbody id="flight-table">
@@ -124,8 +123,7 @@
         const modalbtn = document.getElementById('modalbtn');
         //close button
         const closebtn = document.getElementsByClassName('closebtn')[0];
-        //save button
-        const savebtn = document.getElementById('savebtn');
+        
 
 
         modalbtn.addEventListener('click', closeModal);
@@ -138,11 +136,37 @@
         function closeModal(){
             modal.style.display = "none";
         }
+
+    </script>        
         
+        
+    <script>
+        //modal user input element
+        //save button
+        const savebtn = document.getElementById('saveedit');
+
+        savebtn.addEventListener('click', display);
+
+
+        function display(){
+
+            const flight_id = document.getElementById('flt_id').value;
+            const dept_date = document.getElementById('dep_dte').value;
+            const dept_time = document.getElementById('dep_tme').value;
+            const dept_arpt = document.getElementById('dep_arpt').value;
+            const ariv_date = document.getElementById('arv_dte').value;
+            const ariv_time = document.getElementById('arv_tme').value;
+            const ariv_arpt = document.getElementById('arv_arpt').value;
+            
+            alert("hello " + flight_id);
+        }
 
     </script>
+        
 
-    <script>
+    
+
+    <!-- <script>
         var tblrow = null;
 
         function Display(){
@@ -189,7 +213,7 @@
             // Change Update Button Text
             $("#updateButton").text("Add");
         }
-    </script>
+    </script> -->
 
 <script src="./flights.js"></script>
 </body>
