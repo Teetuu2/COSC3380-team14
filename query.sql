@@ -150,3 +150,5 @@ SELECT * FROM flight;
 
 SELECT * FROM boarding WHERE ticket_no='4';
 
+SELECT * FROM flight;
+
